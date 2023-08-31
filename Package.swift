@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "WWLog",
     platforms: [
-        .iOS(.v12)
+        .iOS(.v14)
     ],
     products: [
         .library(name: "WWLog", targets: ["WWLog"]),
