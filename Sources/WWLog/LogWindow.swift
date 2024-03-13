@@ -56,13 +56,13 @@ extension LogWindow {
     }
 }
 
-// MARK: - LogWindow (class function)
-extension LogWindow {
+// MARK: - LogWindow (function)
+public extension LogWindow {
     
     /// 印出Log文字
     /// - Parameter message: T
     /// - Parameter level: LogLevel
-    public func log<T>(_ message: T, level: LogLevel = .general) {
+    func log<T>(_ message: T, level: LogLevel = .general) {
         guard let viewController = self.rootViewController as? LogViewController else { return }
         viewController.log("\(message)", level: level)
     }

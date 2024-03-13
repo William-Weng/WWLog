@@ -84,10 +84,10 @@ extension LogViewController {
 }
 
 // MARK: - 小工具
-extension LogViewController {
+private extension LogViewController {
     
     /// 初始化GestureRecognizer
-    private func initGestureRecognizer() {
+    func initGestureRecognizer() {
         
         let dragPan = UIPanGestureRecognizer(target: self, action: #selector(handleDrag(_:)))
         let movePan = UIPanGestureRecognizer(target: self, action: #selector(handleZoom(_:)))
@@ -103,14 +103,14 @@ extension LogViewController {
     ///   - frame: CGRect
     ///   - panLocation: CGPoint
     /// - Returns: CGSize
-    private func zoomSize(with frame: CGRect, panLocation: CGPoint) -> CGSize {
+    func zoomSize(with frame: CGRect, panLocation: CGPoint) -> CGSize {
         
         let nowSize = CGSize(width: frame.size.width + panLocation.x, height: frame.size.height + panLocation.y)
         return CGSize(width: max(nowSize.width, miniumSize.width), height: max(nowSize.height, miniumSize.height))
     }
     
     /// UITextView自動向下移動
-    private func updateTextViewScrollRange() {
+    func updateTextViewScrollRange() {
         
         let count = logTextView.text.count
         guard count > 0 else { return }
