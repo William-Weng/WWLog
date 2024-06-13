@@ -30,6 +30,7 @@ extension UIStoryboard {
     }
 }
 
+// MARK: - UIWindow (function)
 extension UIWindow {
     
     func _backgroundColor(_ color: UIColor?) -> Self {
@@ -52,8 +53,24 @@ extension UIWindow {
     }
 }
 
+// MARK: - UIWindowScene (static function)
 @available(iOS 13.0, *)
 extension UIWindowScene {
     
     static var _current: UIWindowScene? { return UIApplication.shared.connectedScenes.first as? UIWindowScene }
+}
+
+// MARK: - UIPasteboard (static function)
+extension UIPasteboard {
+ 
+    /// 快速Copy到剪貼簿上 + 震動提示 (全域)
+    /// - Parameter string: 要複製的文字
+    static func _paste(string: String) {
+        
+        let feedBackGenertor = UINotificationFeedbackGenerator()
+        let pasteboard = UIPasteboard.general
+        
+        pasteboard.string = string
+        feedBackGenertor.notificationOccurred(.success)
+    }
 }

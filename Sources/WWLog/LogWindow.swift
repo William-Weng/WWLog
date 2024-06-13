@@ -10,16 +10,6 @@ import UIKit
 // MARK: - LogWindow
 public class LogWindow: UIWindow {
     
-    /// 輸出的Log完整度
-    public enum LogLevel {
-        case general
-        case detail
-    }
-}
-
-// MARK: - LogWindow (static function)
-extension LogWindow {
-    
     static var Frame = CGRect(x: 100, y: 100, width: 200, height: 200)
     static var Level = 1000
     static var BackgroundColor = UIColor.black.withAlphaComponent(0.3)
@@ -61,9 +51,8 @@ public extension LogWindow {
     
     /// 印出Log文字
     /// - Parameter message: T
-    /// - Parameter level: LogLevel
-    func log<T>(_ message: T, level: LogLevel = .general) {
+    func log<T>(_ message: T) {
         guard let viewController = self.rootViewController as? LogViewController else { return }
-        viewController.log("\(message)", level: level)
+        viewController.log("\(message)")
     }
 }

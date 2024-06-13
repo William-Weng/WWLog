@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import WWPrint
 
 // MARK: - 主體
 class LogViewController: UIViewController {
@@ -15,6 +14,7 @@ class LogViewController: UIViewController {
     @IBOutlet weak var logTextView: UITextView!
     @IBOutlet weak var zoomView: UIImageView!
     @IBOutlet weak var clearView: UIImageView!
+    @IBOutlet weak var copyView: UIImageView!
     
     private let miniumSize = CGSize(width: 100, height: 100)
     
@@ -29,18 +29,10 @@ extension LogViewController {
     
     /// 顯示Log (會自動往下移動)
     /// - Parameter message: String
-    /// - Parameter level: LogWindow.LogLevel
-    func log(_ message: String, level: LogWindow.LogLevel = .general) {
-        
-        let log: String
-        
-        switch level {
-        case .general: log = message
-        case .detail: log = wwMessage(message)
-        }
+    func log(_ message: String) {
         
         DispatchQueue.main.async {
-            self.logTextView.text += "\(log)\n"
+            self.logTextView.text += "\(message)\n"
             self.updateTextViewScrollRange()
         }
     }
@@ -81,6 +73,15 @@ extension LogViewController {
         currentWindow.frame = newFrame
         pan.setTranslation(.zero, in: pan.view)
     }
+    
+    /// 複製logTextView文字
+    /// - Parameter tap: UITapGestureRecognizer
+    @objc func handleCopyText(_ tap: UITapGestureRecognizer) {
+        
+        if let string = logTextView.text, !string.isEmpty {
+            UIPasteboard._paste(string: string)
+        }
+    }
 }
 
 // MARK: - 小工具
@@ -92,10 +93,12 @@ private extension LogViewController {
         let dragPan = UIPanGestureRecognizer(target: self, action: #selector(handleDrag(_:)))
         let movePan = UIPanGestureRecognizer(target: self, action: #selector(handleZoom(_:)))
         let clearTap = UITapGestureRecognizer(target: self, action: #selector(handleClear(_:)))
+        let copyTap = UITapGestureRecognizer(target: self, action: #selector(handleCopyText(_:)))
 
         dragView.addGestureRecognizer(dragPan)
         zoomView.addGestureRecognizer(movePan)
         clearView.addGestureRecognizer(clearTap)
+        copyView.addGestureRecognizer(copyTap)
     }
     
     /// 計算放大的Size

@@ -12,11 +12,9 @@ let package = Package(
         .library(name: "WWLog", targets: ["WWLog"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/William-Weng/WWPrint.git", from: "1.3.0"),
     ],
     targets: [
-        .target(name: "WWLog", dependencies: ["WWPrint"], resources: [.process("Material"), .process("Storyboard"), .copy("Privacy")]),
-        .testTarget(name: "WWLogTests", dependencies: ["WWLog"]),
+        .target(name: "WWLog", resources: [.process("Material"), .process("Storyboard"), .copy("Privacy")]),
     ],
     swiftLanguageVersions: [
         .v5

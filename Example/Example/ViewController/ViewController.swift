@@ -15,12 +15,8 @@ final class ViewController: UIViewController {
         _ = WWLog.shared
     }
     
-    @IBAction func generalLog(_ sender: UIBarButtonItem) {
-        WWLog.shared.log("高手專用")
-    }
-    
-    @IBAction func detailLog(_ sender: UIBarButtonItem) {
-        WWLog.shared.log("高高手專用", level: .detail)
+    @IBAction func printLog(_ sender: UIBarButtonItem) {
+        WWLog.shared.log("列印文字")
     }
 }
 

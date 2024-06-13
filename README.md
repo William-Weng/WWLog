@@ -10,7 +10,7 @@
 ### [Installation with Swift Package Manager](https://medium.com/彼得潘的-swift-ios-app-開發問題解答集/使用-spm-安裝第三方套件-xcode-11-新功能-2c4ffcf85b4b)
 ```swift
 dependencies: [
-    .package(url: "https://github.com/William-Weng/WWLog.git", .upToNextMajor(from: "1.0.0"))
+    .package(url: "https://github.com/William-Weng/WWLog.git", .upToNextMajor(from: "1.1.0"))
 ]
 ```
 
@@ -18,7 +18,7 @@ dependencies: [
 |函式|功能|
 |-|-|
 |configure(with:level:backgroundColor:)|設定一些初始值|
-|log(_:level:)|印出Log文字|
+|log(_:)|印出Log文字|
 
 ### Example
 ```swift
@@ -32,12 +32,8 @@ final class ViewController: UIViewController {
         _ = WWLog.shared
     }
     
-    @IBAction func generalLog(_ sender: UIBarButtonItem) {
-        WWLog.shared.log("高手專用")
-    }
-    
-    @IBAction func detailLog(_ sender: UIBarButtonItem) {
-        WWLog.shared.log("高高手專用", level: .detail)
+    @IBAction func printLog(_ sender: UIBarButtonItem) {
+        WWLog.shared.log("列印文字")
     }
 }
 ```
