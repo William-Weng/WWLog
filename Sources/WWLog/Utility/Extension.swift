@@ -19,12 +19,7 @@ extension UIStoryboard {
     static func _instantiateViewController<T: UIViewController>(name: String = "Main", bundle storyboardBundleOrNil: Bundle? = nil, identifier: String = String(describing: T.self)) -> T {
         
         let viewController: T
-        
-        if #available(iOS 13.0, *) {
-            viewController = Self(name: name, bundle: storyboardBundleOrNil).instantiateViewController(identifier: identifier) as T
-        } else {
-            viewController = Self(name: name, bundle: storyboardBundleOrNil).instantiateViewController(withIdentifier: identifier) as! T
-        }
+        viewController = Self(name: name, bundle: storyboardBundleOrNil).instantiateViewController(identifier: identifier) as T
         
         return viewController
     }
@@ -54,9 +49,7 @@ extension UIWindow {
 }
 
 // MARK: - UIWindowScene (static function)
-@available(iOS 13.0, *)
 extension UIWindowScene {
-    
     static var _current: UIWindowScene? { return UIApplication.shared.connectedScenes.first as? UIWindowScene }
 }
 

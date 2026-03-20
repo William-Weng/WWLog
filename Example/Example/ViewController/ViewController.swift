@@ -12,7 +12,7 @@ final class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        _ = WWLog.shared
+        WWLog.shared.configure(textColor: .white)
     }
     
     @IBAction func printLog(_ sender: UIBarButtonItem) {

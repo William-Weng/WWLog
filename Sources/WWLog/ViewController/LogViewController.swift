@@ -31,7 +31,7 @@ extension LogViewController {
     /// - Parameter message: String
     func log(_ message: String) {
         
-        DispatchQueue.main.async {
+        Task { @MainActor in
             self.logTextView.text += "\(message)\n"
             self.updateTextViewScrollRange()
         }
@@ -44,7 +44,7 @@ extension LogViewController {
     /// 清除文字內容
     /// - Parameter tap: UITapGestureRecognizer
     @objc func handleClear(_ tap: UITapGestureRecognizer) {
-        DispatchQueue.main.async { self.logTextView.text = "" }
+        Task { @MainActor in self.logTextView.text = "" }
     }
     
     /// 移動Window (歸零)

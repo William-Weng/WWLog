@@ -12,8 +12,9 @@
 		3DBCD87B26F198EF00522E3B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DBCD87926F198EF00522E3B /* Main.storyboard */; };
 		3DBCD87D26F198F300522E3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DBCD87C26F198F300522E3B /* Assets.xcassets */; };
 		3DBCD88026F198F300522E3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DBCD87E26F198F300522E3B /* LaunchScreen.storyboard */; };
+		8122ED552F6CE1BC00080A81 /* WWLog in Frameworks */ = {isa = PBXBuildFile; productRef = 8122ED542F6CE1BC00080A81 /* WWLog */; };
+		8122ED582F6CE8A700080A81 /* WWLog in Frameworks */ = {isa = PBXBuildFile; productRef = 8122ED572F6CE8A700080A81 /* WWLog */; };
 		81C779002C1AE8380007749C /* WWLog in Frameworks */ = {isa = PBXBuildFile; productRef = 81C778FF2C1AE8380007749C /* WWLog */; };
-		81FF7EB02C1AEF640004688A /* WWLog in Frameworks */ = {isa = PBXBuildFile; productRef = 81FF7EAF2C1AEF640004688A /* WWLog */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,8 +32,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8122ED582F6CE8A700080A81 /* WWLog in Frameworks */,
 				81C779002C1AE8380007749C /* WWLog in Frameworks */,
-				81FF7EB02C1AEF640004688A /* WWLog in Frameworks */,
+				8122ED552F6CE1BC00080A81 /* WWLog in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,7 +120,8 @@
 			name = Example;
 			packageProductDependencies = (
 				81C778FF2C1AE8380007749C /* WWLog */,
-				81FF7EAF2C1AEF640004688A /* WWLog */,
+				8122ED542F6CE1BC00080A81 /* WWLog */,
+				8122ED572F6CE8A700080A81 /* WWLog */,
 			);
 			productName = Example;
 			productReference = 3DBCD87026F198EF00522E3B /* Example.app */;
@@ -148,7 +151,7 @@
 			);
 			mainGroup = 3DBCD86726F198EF00522E3B;
 			packageReferences = (
-				81FF7EAE2C1AEF640004688A /* XCRemoteSwiftPackageReference "WWLog" */,
+				8122ED562F6CE8A700080A81 /* XCRemoteSwiftPackageReference "WWLog" */,
 			);
 			productRefGroup = 3DBCD87126F198EF00522E3B /* Products */;
 			projectDirPath = "";
@@ -328,7 +331,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4Q5CYDAG3B;
 				INFOPLIST_FILE = Example/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -352,7 +355,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4Q5CYDAG3B;
 				INFOPLIST_FILE = Example/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -392,24 +395,28 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		81FF7EAE2C1AEF640004688A /* XCRemoteSwiftPackageReference "WWLog" */ = {
+		8122ED562F6CE8A700080A81 /* XCRemoteSwiftPackageReference "WWLog" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/William-Weng/WWLog.git";
+			repositoryURL = "https://github.com/William-Weng/WWLog";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.2;
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.1.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		81C778FF2C1AE8380007749C /* WWLog */ = {
+		8122ED542F6CE1BC00080A81 /* WWLog */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = WWLog;
 		};
-		81FF7EAF2C1AEF640004688A /* WWLog */ = {
+		8122ED572F6CE8A700080A81 /* WWLog */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 81FF7EAE2C1AEF640004688A /* XCRemoteSwiftPackageReference "WWLog" */;
+			package = 8122ED562F6CE8A700080A81 /* XCRemoteSwiftPackageReference "WWLog" */;
+			productName = WWLog;
+		};
+		81C778FF2C1AE8380007749C /* WWLog */ = {
+			isa = XCSwiftPackageProductDependency;
 			productName = WWLog;
 		};
 /* End XCSwiftPackageProductDependency section */
