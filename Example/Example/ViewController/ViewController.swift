@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  Example
 //
-//  Created by William.Weng on 2021/9/15.
+//  Created by William.Weng on 2026/9/2.
 //
 
 import UIKit
@@ -19,4 +19,3 @@ final class ViewController: UIViewController {
         WWLog.shared.log("列印文字")
     }
 }
-
